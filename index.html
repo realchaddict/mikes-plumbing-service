@@ -1,0 +1,455 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="description" content="Mike’s Plumbing Service — fast, honest plumbing repairs and installs. Serving Ventura & Los Angeles County."/>
+  <title>Mike’s Plumbing Service | Have a leak? Call the Greek!</title>
+  <style>
+    :root{
+      --bg:#0b1220;
+      --panel:#111a2e;
+      --panel2:#0f1830;
+      --text:#e9eefc;
+      --muted:#b8c3e6;
+      --brand:#4da3ff;
+      --brand2:#63ffda;
+      --danger:#ff4d6d;
+      --ok:#32d583;
+      --shadow: 0 16px 40px rgba(0,0,0,.35);
+      --radius: 18px;
+      --max: 1120px;
+    }
+
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      color:var(--text);
+      background:
+        radial-gradient(1200px 600px at 80% -10%, rgba(77,163,255,.25), transparent 60%),
+        radial-gradient(900px 500px at 0% 10%, rgba(99,255,218,.18), transparent 55%),
+        linear-gradient(180deg, var(--bg), #070b14);
+      line-height:1.5;
+    }
+
+    a{color:inherit}
+    .wrap{max-width:var(--max); margin:0 auto; padding: 22px 18px 80px;}
+    header{
+      position: sticky; top: 0;
+      backdrop-filter: blur(10px);
+      background: rgba(7,11,20,.6);
+      border-bottom: 1px solid rgba(255,255,255,.08);
+      z-index: 10;
+    }
+    .nav{
+      display:flex; align-items:center; justify-content:space-between;
+      max-width:var(--max); margin:0 auto; padding: 14px 18px;
+      gap:16px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:12px;
+      text-decoration:none;
+    }
+    .logo{
+      width:40px; height:40px; border-radius:12px;
+      background: linear-gradient(135deg, var(--brand), var(--brand2));
+      box-shadow: 0 10px 26px rgba(77,163,255,.25);
+      position:relative;
+    }
+    .logo:after{
+      content:""; position:absolute; inset:10px;
+      border-radius:10px;
+      border: 2px solid rgba(11,18,32,.6);
+    }
+    .brand h1{font-size:16px; margin:0; letter-spacing:.2px}
+    .brand p{margin:0; font-size:12px; color:var(--muted)}
+    .links{display:flex; gap:14px; flex-wrap:wrap}
+    .links a{
+      font-size:14px; text-decoration:none; color:var(--muted);
+      padding:8px 10px; border-radius:12px;
+    }
+    .links a:hover{background: rgba(255,255,255,.06); color: var(--text);}
+
+    .ctaRow{display:flex; gap:10px; flex-wrap:wrap; align-items:center; justify-content:flex-end}
+    .btn{
+      display:inline-flex; align-items:center; gap:10px;
+      padding:10px 14px; border-radius: 14px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
+      text-decoration:none;
+      color: var(--text);
+      box-shadow: 0 12px 28px rgba(0,0,0,.22);
+      font-weight:600;
+      font-size:14px;
+      cursor:pointer;
+    }
+    .btn:hover{transform: translateY(-1px)}
+    .btnPrimary{
+      background: linear-gradient(135deg, rgba(77,163,255,.95), rgba(99,255,218,.85));
+      border: none;
+      color:#071018;
+    }
+    .btnSmall{padding:8px 12px; font-weight:700}
+
+    .hero{
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 22px;
+      margin-top: 22px;
+      align-items:stretch;
+    }
+    .card{
+      background: linear-gradient(180deg, rgba(17,26,46,.92), rgba(15,24,48,.86));
+      border: 1px solid rgba(255,255,255,.10);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 22px;
+    }
+    .hero h2{
+      margin:0 0 10px;
+      font-size: 40px;
+      line-height: 1.1;
+      letter-spacing: .2px;
+    }
+    .tag{
+      display:inline-flex; align-items:center; gap:8px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(77,163,255,.14);
+      border: 1px solid rgba(77,163,255,.30);
+      color: var(--text);
+      font-size: 13px;
+      margin-bottom: 12px;
+    }
+    .hero p{
+      margin: 10px 0 0;
+      color: var(--muted);
+      font-size: 16px;
+    }
+    .bullets{
+      margin: 16px 0 0;
+      padding:0;
+      list-style:none;
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    .bullets li{
+      padding: 10px 12px;
+      border-radius: 14px;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.10);
+      color: var(--text);
+      font-size: 14px;
+    }
+
+    .miniGrid{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+    .mini{
+      padding: 14px;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.05);
+    }
+    .mini h3{margin:0 0 6px; font-size:15px}
+    .mini p{margin:0; color:var(--muted); font-size:13px}
+
+    .section{
+      margin-top: 22px;
+      display:grid;
+      grid-template-columns: 1fr;
+      gap: 18px;
+    }
+
+    .grid3{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .service h4{margin:0 0 8px; font-size:16px}
+    .service p{margin:0; color:var(--muted); font-size:14px}
+
+    .split{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      align-items:start;
+    }
+
+    label{display:block; font-size:13px; color: var(--muted); margin: 10px 0 6px;}
+    input, textarea{
+      width:100%;
+      padding: 12px 12px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(0,0,0,.18);
+      color: var(--text);
+      outline:none;
+    }
+    textarea{min-height: 110px; resize: vertical;}
+    .help{font-size:12px; color: var(--muted); margin-top:8px}
+    .note{
+      border-left: 4px solid rgba(99,255,218,.75);
+      padding: 10px 12px;
+      background: rgba(99,255,218,.08);
+      border-radius: 14px;
+      color: var(--muted);
+      font-size: 13px;
+      margin-top: 12px;
+    }
+
+    footer{
+      margin-top: 26px;
+      color: var(--muted);
+      font-size: 13px;
+      text-align:center;
+      opacity:.9;
+    }
+
+    .pillRow{display:flex; gap:8px; flex-wrap:wrap; margin-top: 14px}
+    .pill{
+      font-size: 12px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
+      color: var(--muted);
+    }
+
+    @media (max-width: 900px){
+      .hero{grid-template-columns: 1fr}
+      .grid3{grid-template-columns: 1fr}
+      .split{grid-template-columns: 1fr}
+      .hero h2{font-size: 34px}
+      .bullets{grid-template-columns: 1fr}
+      .ctaRow{justify-content:flex-start}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav">
+      <a class="brand" href="#top">
+        <div class="logo" aria-hidden="true"></div>
+        <div>
+          <h1>Mike’s Plumbing Service</h1>
+          <p>Have a leak? Call the Greek!</p>
+        </div>
+      </a>
+
+      <nav class="links" aria-label="Primary">
+        <a href="#services">Services</a>
+        <a href="#areas">Service Areas</a>
+        <a href="#reviews">Why Us</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <div class="ctaRow">
+        <!-- Replace the phone number below with your real number -->
+        <a class="btn btnPrimary" href="tel:+18005551234" id="callBtn">📞 Call Now</a>
+        <a class="btn btnSmall" href="#contact">Get a Quote</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap" id="top">
+    <section class="hero">
+      <div class="card">
+        <div class="tag">⭐ Fast response • Honest work • Clean job sites</div>
+        <h2>Plumbing you can trust — without the runaround.</h2>
+        <p>
+          Repairs, replacements, and installs for homes, apartments, and small commercial.
+          We show up, explain it clearly, and do it right the first time.
+        </p>
+
+        <ul class="bullets">
+          <li>✅ Leak detection & repairs</li>
+          <li>✅ Water heater installs & swaps</li>
+          <li>✅ Drain clogs & mainline clearing</li>
+          <li>✅ Re-pipes & remodel rough-in</li>
+        </ul>
+
+        <div class="pillRow">
+          <span class="pill">Licensed & Insured</span>
+          <span class="pill">Upfront pricing</span>
+          <span class="pill">Same-day options</span>
+          <!-- Put your license number here if you want -->
+          <span class="pill">License # ________</span>
+        </div>
+
+        <div style="margin-top:16px; display:flex; gap:10px; flex-wrap:wrap;">
+          <a class="btn btnPrimary" href="tel:+18005551234">📞 Call: (800) 555-1234</a>
+          <a class="btn" href="sms:+18005551234">💬 Text Us</a>
+          <a class="btn" href="#contact">🧾 Request Estimate</a>
+        </div>
+
+        <div class="note">
+          Pro tip: the fastest way to get a quote is to text a photo/video of the issue + your address.
+        </div>
+      </div>
+
+      <aside class="card">
+        <div class="miniGrid">
+          <div class="mini">
+            <h3>Emergency-ish?</h3>
+            <p>If water’s going where it shouldn’t, shut off the supply and call. We’ll talk you through it.</p>
+          </div>
+          <div class="mini">
+            <h3>Clean & respectful</h3>
+            <p>Shoe covers, tarps, and we don’t leave your place looking like a plumbing crime scene.</p>
+          </div>
+          <div class="mini">
+            <h3>Transparent pricing</h3>
+            <p>We explain the options and costs before we start. No surprise “gotcha” fees.</p>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <section class="section" id="services">
+      <div class="card">
+        <h3 style="margin:0 0 10px; font-size:22px;">Services</h3>
+        <div class="grid3">
+          <div class="service">
+            <h4>Leak Repairs</h4>
+            <p>Faucets, angle stops, supply lines, slab leaks, ceiling leaks — we’ll find it and fix it.</p>
+          </div>
+          <div class="service">
+            <h4>Water Heaters</h4>
+            <p>Standard tank replacements, troubleshooting, gas/venting checks, recirculation options.</p>
+          </div>
+          <div class="service">
+            <h4>Drains & Sewer</h4>
+            <p>Kitchen/bath clogs, cleanouts, hydro-jet referrals, camera inspections when needed.</p>
+          </div>
+          <div class="service">
+            <h4>Toilets & Fixtures</h4>
+            <p>Installs, rebuilds, flange repairs, garbage disposals, faucets, and shower valves.</p>
+          </div>
+          <div class="service">
+            <h4>Repipe & Remodel</h4>
+            <p>Supply repipes, drain reroutes, rough-in for bathrooms/kitchens, clean workmanship.</p>
+          </div>
+          <div class="service">
+            <h4>Gas & Appliance Hookups</h4>
+            <p>Gas line repairs, shutoff valves, stove/dryer hookups (where permitted).</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section split">
+      <div class="card" id="areas">
+        <h3 style="margin:0 0 8px; font-size:22px;">Service Areas</h3>
+        <p style="margin:0; color:var(--muted);">
+          Serving Ventura & Los Angeles County and nearby areas.
+          (Update this list however you want.)
+        </p>
+        <ul style="color:var(--muted); margin:14px 0 0; padding-left:18px;">
+          <li>Newbury Park</li>
+          <li>Thousand Oaks</li>
+          <li>Camarillo</li>
+          <li>Ventura</li>
+          <li>Simi Valley</li>
+          <li>Westlake Village</li>
+        </ul>
+        <div class="help">Want to look bigger? Add nearby cities you actually service — Google loves that.</div>
+      </div>
+
+      <div class="card" id="reviews">
+        <h3 style="margin:0 0 8px; font-size:22px;">Why people stick with us</h3>
+        <p style="margin:0; color:var(--muted);">
+          You don’t need a plumbing poet. You need someone who shows up and fixes the problem.
+        </p>
+        <ul class="bullets" style="margin-top:14px;">
+          <li>🧠 We explain it like a human</li>
+          <li>🧼 We keep the work area clean</li>
+          <li>🧾 Options + upfront pricing</li>
+          <li>🔧 We don’t “temporary-fix” forever</li>
+        </ul>
+        <div class="note" style="border-left-color: rgba(77,163,255,.8); background: rgba(77,163,255,.08);">
+          Add your Google Reviews link here later for a big credibility boost.
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="card">
+        <h3 style="margin:0 0 6px; font-size:22px;">Contact</h3>
+        <p style="margin:0; color:var(--muted);">
+          Call/text for the fastest response. Or send a quote request below.
+        </p>
+
+        <div style="margin-top:14px; display:flex; gap:10px; flex-wrap:wrap;">
+          <a class="btn btnPrimary" href="tel:+18005551234">📞 Call: (800) 555-1234</a>
+          <a class="btn" href="sms:+18005551234">💬 Text Us</a>
+          <!-- Replace with your email -->
+          <a class="btn" href="mailto:quotes@mikesplumbingservice.com">✉️ Email</a>
+        </div>
+
+        <form id="quoteForm" style="margin-top:18px;">
+          <div class="split">
+            <div>
+              <label for="name">Name</label>
+              <input id="name" name="name" placeholder="Your name" required />
+            </div>
+            <div>
+              <label for="phone">Phone</label>
+              <input id="phone" name="phone" placeholder="(###) ###-####" required />
+            </div>
+          </div>
+
+          <label for="address">Address / City</label>
+          <input id="address" name="address" placeholder="Street + City" />
+
+          <label for="message">What’s going on?</label>
+          <textarea id="message" name="message" placeholder="Describe the issue (and mention if water is currently leaking)."></textarea>
+
+          <div style="margin-top:12px; display:flex; gap:10px; flex-wrap:wrap; align-items:center;">
+            <button class="btn btnPrimary" type="submit">Send Request</button>
+            <span class="help">This opens your email app with the details filled in (no fancy backend needed).</span>
+          </div>
+        </form>
+
+        <div class="note">
+          If you want the form to send automatically (no email app), tell me where you want to host (Netlify is easiest)
+          and I’ll wire it up.
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      © <span id="year"></span> Mike’s Plumbing Service • Have a leak? Call the Greek!
+    </footer>
+  </main>
+
+  <script>
+    // Update year
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Simple "email-based form" so you don't need a server.
+    // Replace this email with the one you want to receive requests at.
+    const RECEIVER_EMAIL = "quotes@mikesplumbingservice.com";
+
+    document.getElementById("quoteForm").addEventListener("submit", function(e){
+      e.preventDefault();
+      const name = document.getElementById("name").value.trim();
+      const phone = document.getElementById("phone").value.trim();
+      const address = document.getElementById("address").value.trim();
+      const message = document.getElementById("message").value.trim();
+
+      const subject = encodeURIComponent("Quote Request - Mike’s Plumbing Service");
+      const body = encodeURIComponent(
+        `Name: ${name}\nPhone: ${phone}\nAddress/City: ${address}\n\nIssue:\n${message}\n\n(Submitted from website)`
+      );
+
+      window.location.href = `mailto:${RECEIVER_EMAIL}?subject=${subject}&body=${body}`;
+    });
+  </script>
+</body>
+</html>
